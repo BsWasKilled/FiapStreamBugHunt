@@ -29,14 +29,9 @@ public class ConteudoController {
     // GET /api/conteudos/{id} - Buscar por ID
     @GetMapping("/{id}")
     public Conteudo buscarPorId(@PathVariable Long id) {
-        try {
             Conteudo conteudo = conteudoRepository.findById(id)
                     .orElseThrow(() -> new ConteudoNaoEncontradoException("Conteúdo não encontrado: " + id));
             return ResponseEntity.ok(conteudo).getBody();
-        } catch (Exception e) {
-            // TODO: tratar isso depois
-        }
-        return null;
     }
 
     // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
@@ -44,7 +39,7 @@ public class ConteudoController {
     public List<Conteudo> listarPorCategoria(@PathVariable String categoria) {
         List<Conteudo> resultado = new ArrayList<>();
         for (Conteudo c : conteudoRepository.findAll()) {
-            if (c.getCategoria() == categoria) {
+            if (c.getCategoria().equals(categoria)) {
                 resultado.add(c);
             }
         }
