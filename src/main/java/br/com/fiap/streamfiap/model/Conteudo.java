@@ -29,8 +29,11 @@ public abstract class Conteudo {
         this.disponivel = disponivel;
     }
 
+    private static final double PRECO_BASE = 9.90;
+
+
     public double calcularPrecoAluguel() {
-        return 9.90;
+        return PRECO_BASE;
     }
 
     public double calcularPrecoPromocional() {
