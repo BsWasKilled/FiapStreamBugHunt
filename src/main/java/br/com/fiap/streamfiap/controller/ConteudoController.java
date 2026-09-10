@@ -35,7 +35,7 @@ public class ConteudoController {
     }
 
     // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
-    @@GetMapping("/categoria/{categoria}")
+    @GetMapping("/categoria/{categoria}")
     public List<Conteudo> listarPorCategoria(@PathVariable String categoria) {
         return conteudoRepository.findByCategoria(categoria);
     }
