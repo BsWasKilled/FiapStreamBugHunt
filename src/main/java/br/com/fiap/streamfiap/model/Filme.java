@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 public class Filme extends Conteudo implements Promocionavel {
 
     private boolean estreia;
-
+ffe
     public Filme() {
     }
 
@@ -22,7 +22,7 @@ public class Filme extends Conteudo implements Promocionavel {
 
     @Override
     public double aplicarPromocao(double preco) {
-        return preco * 1.2;
+        return preco * 0.8;
     }
 
     public boolean isEstreia() { return estreia; }
