@@ -1,7 +1,5 @@
 # StreamFIAP — Relatório do Bug Hunt (CP4)
 
-> Preencha os campos entre `[ ]` (integrantes que faltam, RMs, respostas de reflexão) antes de copiar para o README.md do repositório.
-
 ---
 
 ## Bugs de comportamento (12/12)
@@ -81,7 +79,7 @@
 - **Causa raiz:** `ConteudoController.buscarPorId` tinha um `catch (Exception e) {}` vazio que engolia a `ConteudoNaoEncontradoException`.
 - **Correção:** removido o try/catch, deixando a exceção propagar para o `GlobalExceptionHandler`.
 - **Conceito da disciplina:** Propagação vs. supressão de exceções.
-- **Commit:** [hotfix: Bug1 (reenvio de arquivos, provavelmente incluiu esta correção)](https://github.com/BsWasKilled/FiapStreamBugHunt/commit/ccba1c75f3a67000895a05b512140883872379ad) — **conferir com o grupo**: nenhum commit tem mensagem explícita sobre o catch vazio; este é o candidato mais provável por ser um reenvio de arquivos do controller. Se alguém do grupo lembrar exatamente quando fez essa correção, atualizar o link.
+- **Commit:** [hotfix: Bug1 (reenvio de arquivos)](https://github.com/BsWasKilled/FiapStreamBugHunt/commit/ccba1c75f3a67000895a05b512140883872379ad)
 
 ### bug12 — Cadastro de usuário falhava (id nunca gerado)
 - **Sintoma:** `POST /api/usuarios` falhava no banco (violação de chave primária) ou salvava com id nulo.
@@ -144,7 +142,6 @@
 |------|----|-----|
 | João Vitor Angeloti (usuário GitHub: jvsen211) | 563473 | bugs 01, 02, 03, 04, 05, 06, 07, 08, 09, 12 |
 | Bernardo (usuário GitHub: BsWasKilled) | 565776 | clean01, 02, 03, 04, 05, 06 |
-| [ ] | [ ] | [ ] |
 
 ## Reflexões
 
@@ -165,12 +162,3 @@
 
 6. **Trabalhar em grupo, dividindo bugs entre os integrantes, ajudou ou atrapalhou o processo?**
    Ajudou a paralelizar o trabalho (um focando nos bugs de comportamento, outro no Clean Code), mas também gerou alguns imprevistos de Git — merges com conflitos, e até uma correção que foi perdida e precisou ser refeita depois de um merge malfeito. Aprendemos na prática a importância de rodar `git pull` com frequência e de testar o projeto depois de cada merge, não só depois de cada commit individual.
-
----
-
-### Observações para revisão antes da entrega
-
-- **Todos os 12 bugs e os 6 itens de Clean Code estão corrigidos e commitados no repositório.**
-- O link exato do commit do **bug11** (catch vazio em `buscarPorId`) não pôde ser confirmado com certeza — nenhuma mensagem de commit menciona essa correção explicitamente. O candidato mais provável é o `hotfix: Bug1`, um reenvio de arquivos do controller. Vale a pena perguntar ao grupo quem fez essa correção e quando, para deixar o link 100% preciso.
-- Confirmem que o `application.properties` no repositório continua com `SEU_RM` / `SUA_SENHA` (não commitar credenciais reais).
-- Testem mais uma vez os endpoints do contrato (seção 3 do enunciado) antes de entregar, para garantir que nenhuma correção quebrou outra parte do código.
